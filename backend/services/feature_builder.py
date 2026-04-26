@@ -96,17 +96,17 @@ def building_density(osm_buildings: dict, area_km2: float) -> float:
 
 def building_regularity(osm_buildings: dict) -> float:
     """
-    Mean ratio of actual polygon area to minimum bounding rectangle area.
-    Score near 1 → rectangular/regular.  Score < 1 → irregular.
+    Lightweight proxy for building regularity: fraction of buildings
+    that are simple rectangles (4-5 nodes). Avoids heavy Shapely ops.
     """
-    ratios = []
-    for el in osm_buildings.get("elements", []):
-        poly = _polygon_from_element(el)
-        if poly and poly.area > 0:
-            bbox_area = poly.minimum_rotated_rectangle.area
-            if bbox_area > 0:
-                ratios.append(poly.area / bbox_area)
-    return float(np.mean(ratios)) if ratios else 0.0
+    elements = osm_buildings.get("elements", [])
+    if not elements:
+        return 0.0
+    simple = sum(
+        1 for el in elements
+        if len(el.get("geometry", [])) in (4, 5)
+    )
+    return simple / len(elements)
 
 
 def water_coverage_ratio(osm_water: dict, area_km2: float) -> float:

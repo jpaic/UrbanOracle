@@ -5,12 +5,13 @@ from config import OVERPASS_URL, OVERPASS_TIMEOUT
 
 def query_overpass_batch(bbox: list, max_retries: int = 4) -> dict:
     """
-    Fetch ALL needed OSM layers for a bbox in a single Overpass request.
-    Returns a dict keyed by layer name: roads, buildings, water, waterways, parks, forests.
+    Fetch all needed OSM layers in a single Overpass request.
+    Limits results per layer to cap memory usage on free tier.
     """
     s, w, n, e = bbox
+    # 500 limit per layer keeps response under ~10MB total
     query = f"""
-    [out:json][timeout:{OVERPASS_TIMEOUT}];
+    [out:json][timeout:{OVERPASS_TIMEOUT}][maxsize:67108864];
     (
       way["highway"]({s},{w},{n},{e});
       way["building"]({s},{w},{n},{e});
@@ -19,7 +20,7 @@ def query_overpass_batch(bbox: list, max_retries: int = 4) -> dict:
       way["leisure"="park"]({s},{w},{n},{e});
       way["landuse"="forest"]({s},{w},{n},{e});
     );
-    out body geom;
+    out body geom qt 500;
     """
     headers = {"User-Agent": "UrbanOracle/1.0"}
 
@@ -49,7 +50,6 @@ def query_overpass_batch(bbox: list, max_retries: int = 4) -> dict:
 
 
 def _split_layers(raw: dict) -> dict:
-    """Split the flat element list into named layers by tag."""
     layers = {
         "roads":      {"elements": []},
         "buildings":  {"elements": []},
