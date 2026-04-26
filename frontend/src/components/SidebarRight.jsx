@@ -1,6 +1,28 @@
 import { useEffect, useRef } from 'react';
 import { drawRadar } from '../utils/radar';
 
+// Same ranges as SidebarLeft — normalize raw values to 0-1 for the radar
+const RADAR_RANGES = {
+  road_density:        { min: 0, max: 5   },
+  road_entropy:        { min: 0, max: 6   },
+  building_density:    { min: 0, max: 20  },
+  building_regularity: { min: 0, max: 1   },
+  water_coverage:      { min: 0, max: 1   },
+  elevation_variance:  { min: 0, max: 100 },
+  green_space_ratio:   { min: 0, max: 1   },
+  river_density:       { min: 0, max: 3   },
+};
+
+function normalizeVector(vector) {
+  if (!vector) return null;
+  const out = {};
+  for (const [key, { min, max }] of Object.entries(RADAR_RANGES)) {
+    const raw = vector[key] ?? 0;
+    out[key] = Math.min(Math.max((raw - min) / (max - min), 0), 1);
+  }
+  return out;
+}
+
 function ResultCard({ match, rank, onFly, onFlyToSelection, isActive }) {
   const barRef = useRef(null);
   const rankColors = ['var(--match-1)', 'var(--match-2)', 'var(--match-3)'];
@@ -64,14 +86,15 @@ function ResultCard({ match, rank, onFly, onFlyToSelection, isActive }) {
 
 function RadarPanel({ vector }) {
   const canvasRef = useRef(null);
+  const normalized = normalizeVector(vector);
 
   useEffect(() => {
-    if (canvasRef.current) drawRadar(canvasRef.current, vector);
-  }, [vector]);
+    if (canvasRef.current) drawRadar(canvasRef.current, normalized);
+  }, [normalized]);
 
   useEffect(() => {
     const handler = () => {
-      if (canvasRef.current) drawRadar(canvasRef.current, vector);
+      if (canvasRef.current) drawRadar(canvasRef.current, normalized);
     };
     let t;
     const debounced = () => { clearTimeout(t); t = setTimeout(handler, 150); };
@@ -81,7 +104,7 @@ function RadarPanel({ vector }) {
       window.removeEventListener('resize', debounced);
       window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', handler);
     };
-  }, [vector]);
+  }, [normalized]);
 
   return (
     <div className="panel" id="panel-radar">
@@ -113,9 +136,9 @@ export default function SidebarRight({ matches, vector, onFlyTo, onFlyToSelectio
           </div>
         ) : (
           <div id="results-list">
-            {matches.map((match, idx) => (
+            {matches.slice(0, 3).map((match, idx) => (
               <ResultCard key={match.city} match={match} rank={idx + 1}
-               onFly={onFlyTo} onFlyToSelection={onFlyToSelection} isActive={activeCityKey === match.city } />
+               onFly={onFlyTo} onFlyToSelection={onFlyToSelection} isActive={activeCityKey === match.city} />
             ))}
           </div>
         )}

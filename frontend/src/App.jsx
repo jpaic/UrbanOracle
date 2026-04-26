@@ -6,7 +6,7 @@ import SidebarRight from './components/SidebarRight';
 import { mockAnalyze } from './utils/mock';
 import { analyzeRegion, fetchSimilarCities } from './services/api';
 
-const USE_MOCK = false; // Set false when backend is live
+const USE_MOCK = false;
 
 const INITIAL_STAGE_STATUSES = ['idle', 'idle', 'idle', 'idle'];
 
@@ -47,7 +47,7 @@ export default function App() {
   }
 
   function handleClear() {
-    clearTrigger.current += 1; // signal MapView to clear layers
+    clearTrigger.current += 1;
     abortRef.current?.abort();
     setBbox(null);
     setCoordsText('—');
@@ -69,59 +69,56 @@ export default function App() {
     resetResults();
 
     try {
-      const onStage = (idx, label, status) => {
+      const onStage = (idx, label, st) => {
         setLoadingStage(label);
         setStageStatuses(prev => {
           const next = [...prev];
-          next[idx] = status;
+          next[idx] = st;
           return next;
         });
       };
 
       const result = USE_MOCK
-      ? await mockAnalyze(bbox, onStage, abortRef.current.signal)
-      : await (async () => {
-          onStage(0, 'Extracting OSM data…', 'active');
-          const { features } = await analyzeRegion([bbox.minLat, bbox.minLng, bbox.maxLat, bbox.maxLng]);
-          onStage(0, 'Extracting OSM data…', 'done');
+        ? await mockAnalyze(bbox, onStage, abortRef.current.signal)
+        : await (async () => {
+            onStage(0, 'Extracting OSM data…', 'active');
+            const { features } = await analyzeRegion([bbox.minLat, bbox.minLng, bbox.maxLat, bbox.maxLng]);
+            onStage(0, 'Extracting OSM data…', 'done');
 
-          onStage(1, 'Building feature vector…', 'active');
-          onStage(1, 'Building feature vector…', 'done');
+            onStage(1, 'Building feature vector…', 'active');
+            onStage(1, 'Building feature vector…', 'done');
 
-          onStage(2, 'Running similarity search…', 'active');
-          const { results } = await fetchSimilarCities(features, 10);
-          onStage(2, 'Running similarity search…', 'done');
+            onStage(2, 'Running similarity search…', 'active');
+            const { results } = await fetchSimilarCities(features, 3); // top 3 only
+            onStage(2, 'Running similarity search…', 'done');
 
-          onStage(3, 'Ranking matches…', 'active');
-          const matches = results.map((r, i) => ({
-            rank: i + 1,
-            city: r.name,
-            country: '',
-            similarity: r.similarity_score,
-            lat: r.lat,
-            lng: r.lon,
-            tags: [],
-          }));
-          onStage(3, 'Ranking matches…', 'done');
+            onStage(3, 'Ranking matches…', 'active');
+            const matches = results.map((r, i) => ({
+              rank: i + 1,
+              city: r.name,
+              country: '',
+              similarity: r.similarity_score,
+              lat: r.lat,
+              lng: r.lon,
+              tags: [],
+            }));
+            onStage(3, 'Ranking matches…', 'done');
 
-          return { vector: features, matches };
-        })();
+            return { vector: features, matches };
+          })();
 
       setVector(result.vector);
       setMatches(result.matches);
       setStatus(`Analysis complete — ${result.matches.length} structural matches found`);
       setBadgeTitle('Analysis done');
-      setBadgeSub(`Top match: ${result.matches[0]?.city}, ${result.matches[0]?.country}`);
+      setBadgeSub(`Top match: ${result.matches[0]?.city}`);
     } catch (err) {
-      if (err.name === 'AbortError') {
-      return;
-      }
+      if (err.name === 'AbortError') return;
       console.error('Analysis failed:', err);
       setStatus('Analysis failed — check backend connection');
       setBadgeSub('Error: ' + (err.message || 'Unknown error'));
     } finally {
       abortRef.current = null;
-      // Small delay so the last stage state is visible before fade-out
       await new Promise(r => setTimeout(r, 50));
       setAnalyzing(false);
     }
@@ -131,12 +128,11 @@ export default function App() {
     setFlyTarget({ lat: match.lat, lng: match.lng, _t: Date.now() });
     setActiveCityKey(match.city);
     setBadgeTitle(match.city);
-    setBadgeSub(`${match.country} · ${(match.similarity * 100).toFixed(0)}% match`);
+    setBadgeSub(`${(match.similarity * 100).toFixed(0)}% structural match`);
   }
 
   function handleFlyToSelection() {
     if (!bbox) return;
-    // Pass a special target type the map recognises as "fit bounds"
     setFlyTarget({ bbox, _t: Date.now() });
     setActiveCityKey(null);
     setBadgeTitle('Region selected');
