@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { drawRadar } from '../utils/radar';
 
-// Same ranges as SidebarLeft — normalize raw values to 0-1 for the radar
 const RADAR_RANGES = {
   road_density:        { min: 0, max: 5   },
   road_entropy:        { min: 0, max: 6   },
@@ -89,13 +88,16 @@ function RadarPanel({ vector }) {
   const normalized = normalizeVector(vector);
 
   useEffect(() => {
-    if (canvasRef.current) drawRadar(canvasRef.current, normalized);
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    // Always redraw — pass null when no data to clear the canvas
+    drawRadar(canvas, normalized);
   }, [normalized]);
 
   useEffect(() => {
-    const handler = () => {
-      if (canvasRef.current) drawRadar(canvasRef.current, normalized);
-    };
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const handler = () => drawRadar(canvas, normalizeVector(vector));
     let t;
     const debounced = () => { clearTimeout(t); t = setTimeout(handler, 150); };
     window.addEventListener('resize', debounced);
@@ -104,16 +106,23 @@ function RadarPanel({ vector }) {
       window.removeEventListener('resize', debounced);
       window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', handler);
     };
-  }, [normalized]);
+  }, [vector]);
 
   return (
     <div className="panel" id="panel-radar">
       <div className="panel-label">Signature</div>
       <h3 className="panel-title">Urban Profile</h3>
-      <div id="radar-wrap">
-        <canvas ref={canvasRef} id="radar-canvas" width="240" height="240" />
+      {/* Fixed-size wrapper prevents canvas from ever changing sidebar height */}
+      <div id="radar-wrap" style={{ position: 'relative', width: '240px', height: '240px', margin: '0 auto', flexShrink: 0 }}>
+        <canvas
+          ref={canvasRef}
+          id="radar-canvas"
+          width="240"
+          height="240"
+          style={{ display: 'block', width: '240px', height: '240px' }}
+        />
         {!vector && (
-          <div id="radar-empty-msg">
+          <div id="radar-empty-msg" style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
             Run analysis to see<br />the urban fingerprint
           </div>
         )}
@@ -137,8 +146,14 @@ export default function SidebarRight({ matches, vector, onFlyTo, onFlyToSelectio
         ) : (
           <div id="results-list">
             {matches.slice(0, 3).map((match, idx) => (
-              <ResultCard key={match.city} match={match} rank={idx + 1}
-               onFly={onFlyTo} onFlyToSelection={onFlyToSelection} isActive={activeCityKey === match.city} />
+              <ResultCard
+                key={match.city}
+                match={match}
+                rank={idx + 1}
+                onFly={onFlyTo}
+                onFlyToSelection={onFlyToSelection}
+                isActive={activeCityKey === match.city}
+              />
             ))}
           </div>
         )}

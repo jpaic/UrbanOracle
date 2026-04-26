@@ -79,7 +79,7 @@ def road_network_entropy(osm_roads: dict) -> float:
     for way in osm_roads.get("elements", []):
         coords = way.get("geometry", [])
         for i in range(len(coords) - 1):
-            b = compute_bearing(coords[i], coords[i + 1])
+            b = compute_bearing(coords[i], coords[i + 1]) % 180  # collapse N/S same axis as S/N
             bearings.append(int(b / 10) * 10)
     if not bearings:
         return 0.0
