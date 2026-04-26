@@ -1,0 +1,752 @@
+[
+  {
+    "name": "Paris",
+    "lat": 48.8566,
+    "lon": 2.3522,
+    "features": {
+      "road_density": 63.75044904504801,
+      "road_entropy": 5.078230065953656,
+      "building_density": 767.0621034688069,
+      "building_regularity": 0.7434156216766438,
+      "water_coverage": 0.005872063200283855,
+      "river_density": 1.0656738863508786,
+      "elevation_variance": 7.941152572631836,
+      "green_space_ratio": 0.0647953389726507
+    }
+  },
+  {
+    "name": "London",
+    "lat": 51.5074,
+    "lon": -0.1278,
+    "features": {
+      "road_density": 42.48162523979055,
+      "road_entropy": 5.0923612632806705,
+      "building_density": 718.900074351529,
+      "building_regularity": 0.7893818179739711,
+      "water_coverage": 0.00024248658549626685,
+      "river_density": 0.9049953553316856,
+      "elevation_variance": 11.630387306213379,
+      "green_space_ratio": 0.1481248417164083
+    }
+  },
+  {
+    "name": "Berlin",
+    "lat": 52.52,
+    "lon": 13.405,
+    "features": {
+      "road_density": 34.73462067286547,
+      "road_entropy": 5.059331367320128,
+      "building_density": 449.7440703893189,
+      "building_regularity": 0.788323736229848,
+      "water_coverage": 0.008052778205383039,
+      "river_density": 0.619921115983741,
+      "elevation_variance": 6.450588703155518,
+      "green_space_ratio": 0.05713806664301633
+    }
+  },
+  {
+    "name": "Madrid",
+    "lat": 40.4168,
+    "lon": -3.7038,
+    "features": {
+      "road_density": 39.96059819837497,
+      "road_entropy": 5.12329899718015,
+      "building_density": 528.5563923726284,
+      "building_regularity": 0.8102619163457946,
+      "water_coverage": 0.003490289956094014,
+      "river_density": 0.40172541883031965,
+      "elevation_variance": 35.31740951538086,
+      "green_space_ratio": 0.12118239630190512
+    }
+  },
+  {
+    "name": "Rome",
+    "lat": 41.9028,
+    "lon": 12.4964,
+    "features": {
+      "road_density": 40.88907402581142,
+      "road_entropy": 5.1270769262296385,
+      "building_density": 437.62196964197824,
+      "building_regularity": 0.76093124977998,
+      "water_coverage": 0.0028104740533604847,
+      "river_density": 3.5283298863076555,
+      "elevation_variance": 15.647113800048828,
+      "green_space_ratio": 0.05025064597705654
+    }
+  },
+  {
+    "name": "Amsterdam",
+    "lat": 52.3676,
+    "lon": 4.9041,
+    "features": {
+      "road_density": 26.261584237400292,
+      "road_entropy": 5.142231900689325,
+      "building_density": 1280.9971266882455,
+      "building_regularity": 0.8083038270123085,
+      "water_coverage": 0.1749892961422695,
+      "river_density": 2.8345434357994512,
+      "elevation_variance": 3.062837839126587,
+      "green_space_ratio": 0.060191093675773834
+    }
+  },
+  {
+    "name": "Vienna",
+    "lat": 48.2082,
+    "lon": 16.3738,
+    "features": {
+      "road_density": 34.27284770652684,
+      "road_entropy": 5.15884896870843,
+      "building_density": 408.50170690841526,
+      "building_regularity": 0.740984788496368,
+      "water_coverage": 0.002964543051010451,
+      "river_density": 0.9262886207277432,
+      "elevation_variance": 13.189273834228516,
+      "green_space_ratio": 0.10304270187871185
+    }
+  },
+  {
+    "name": "Prague",
+    "lat": 50.0755,
+    "lon": 14.4378,
+    "features": {
+      "road_density": 35.82309117897936,
+      "road_entropy": 5.077581612590646,
+      "building_density": 534.3490872705161,
+      "building_regularity": 0.796419090639535,
+      "water_coverage": 0.000759165802340025,
+      "river_density": 1.0117468264968372,
+      "elevation_variance": 26.091257095336914,
+      "green_space_ratio": 0.05745631923496359
+    }
+  },
+  {
+    "name": "Warsaw",
+    "lat": 52.2297,
+    "lon": 21.0122,
+    "features": {
+      "road_density": 41.31980805762073,
+      "road_entropy": 4.9656152207878685,
+      "building_density": 232.57348212232222,
+      "building_regularity": 0.7750654574554965,
+      "water_coverage": 0.007149318220529872,
+      "river_density": 0.49852798939234433,
+      "elevation_variance": 13.705137252807617,
+      "green_space_ratio": 0.08786343068326444
+    }
+  },
+  {
+    "name": "Budapest",
+    "lat": 47.4979,
+    "lon": 19.0402,
+    "features": {
+      "road_density": 25.213643608936017,
+      "road_entropy": 5.142909896820831,
+      "building_density": 309.4331026145448,
+      "building_regularity": 0.7679100979757443,
+      "water_coverage": 0.00020449209782915533,
+      "river_density": 0.6177212459204608,
+      "elevation_variance": 28.45161247253418,
+      "green_space_ratio": 0.06042768774985912
+    }
+  },
+  {
+    "name": "Lisbon",
+    "lat": 38.7169,
+    "lon": -9.1395,
+    "features": {
+      "road_density": 30.79522319648599,
+      "road_entropy": 5.142568046389246,
+      "building_density": 912.4261084746571,
+      "building_regularity": 0.838750717093263,
+      "water_coverage": 0.001212231455523242,
+      "river_density": 1.287952329322196,
+      "elevation_variance": 37.67905044555664,
+      "green_space_ratio": 0.02315349674092201
+    }
+  },
+  {
+    "name": "Stockholm",
+    "lat": 59.3293,
+    "lon": 18.0686,
+    "features": {
+      "road_density": 26.21412124145211,
+      "road_entropy": 5.050395653868561,
+      "building_density": 237.64489418227063,
+      "building_regularity": 0.7257025126348406,
+      "water_coverage": 0.0011547024064552857,
+      "river_density": 0.4554404296006821,
+      "elevation_variance": 13.390462875366211,
+      "green_space_ratio": 0.11042057722031104
+    }
+  },
+  {
+    "name": "Copenhagen",
+    "lat": 55.6761,
+    "lon": 12.5683,
+    "features": {
+      "road_density": 23.819935966838727,
+      "road_entropy": 5.12313369701575,
+      "building_density": 386.6045002076028,
+      "building_regularity": 0.7389339574277438,
+      "water_coverage": 0.03517970069716014,
+      "river_density": 0.2775270410923868,
+      "elevation_variance": 4.673071384429932,
+      "green_space_ratio": 0.09412873657952216
+    }
+  },
+  {
+    "name": "Athens",
+    "lat": 37.9838,
+    "lon": 23.7275,
+    "features": {
+      "road_density": 33.25793668826495,
+      "road_entropy": 5.10032991370961,
+      "building_density": 1515.674885090508,
+      "building_regularity": 0.8388619479233089,
+      "water_coverage": 0.00015494317559622975,
+      "river_density": 0.46103780953274576,
+      "elevation_variance": 40.583457946777344,
+      "green_space_ratio": 0.0877794944103719
+    }
+  },
+  {
+    "name": "Brussels",
+    "lat": 50.8503,
+    "lon": 4.3517,
+    "features": {
+      "road_density": 33.963182360544636,
+      "road_entropy": 5.080164688696622,
+      "building_density": 1594.5034522673504,
+      "building_regularity": 0.795504821754587,
+      "water_coverage": 0.016250281259837684,
+      "river_density": 1.2656961401136997,
+      "elevation_variance": 18.894826889038086,
+      "green_space_ratio": 0.04589452180008807
+    }
+  },
+  {
+    "name": "New York",
+    "lat": 40.7128,
+    "lon": -74.006,
+    "features": {
+      "road_density": 37.322160381456065,
+      "road_entropy": 4.997505300494857,
+      "building_density": 409.89432503158594,
+      "building_regularity": 0.864719969322116,
+      "water_coverage": 0.0016949263306471974,
+      "river_density": 2.0449500704670034,
+      "elevation_variance": 12.96406364440918,
+      "green_space_ratio": 0.06332235108874336
+    }
+  },
+  {
+    "name": "Los Angeles",
+    "lat": 34.0522,
+    "lon": -118.2437,
+    "features": {
+      "road_density": 43.70033759555969,
+      "road_entropy": 4.940723750472936,
+      "building_density": 351.167724019336,
+      "building_regularity": 0.8568743646089872,
+      "water_coverage": 0.1893906871369684,
+      "river_density": 2.346209159966686,
+      "elevation_variance": 19.095544815063477,
+      "green_space_ratio": 0.029106699338897386
+    }
+  },
+  {
+    "name": "Chicago",
+    "lat": 41.8781,
+    "lon": -87.6298,
+    "features": {
+      "road_density": 46.64361952941708,
+      "road_entropy": 4.052669236102034,
+      "building_density": 239.81124695159218,
+      "building_regularity": 0.9297677656829874,
+      "water_coverage": 0.0029681679236303565,
+      "river_density": 1.6672806079100222,
+      "elevation_variance": 10.454544067382812,
+      "green_space_ratio": 0.0528881502831402
+    }
+  },
+  {
+    "name": "Toronto",
+    "lat": 43.6532,
+    "lon": -79.3832,
+    "features": {
+      "road_density": 42.378892926982296,
+      "road_entropy": 4.126881409337944,
+      "building_density": 371.8869396933726,
+      "building_regularity": 0.8345754626261487,
+      "water_coverage": 0.009350227856803167,
+      "river_density": 0.313318285195498,
+      "elevation_variance": 16.483877182006836,
+      "green_space_ratio": 0.09304087609439428
+    }
+  },
+  {
+    "name": "Mexico City",
+    "lat": 19.4326,
+    "lon": -99.1332,
+    "features": {
+      "road_density": 28.297306047183493,
+      "road_entropy": 4.423919500833116,
+      "building_density": 719.9046047476952,
+      "building_regularity": 0.9155985038478879,
+      "water_coverage": 0.0005153659744408188,
+      "river_density": 0.04893799692166106,
+      "elevation_variance": 3.56733775138855,
+      "green_space_ratio": 0.02876220401448654
+    }
+  },
+  {
+    "name": "Sao Paulo",
+    "lat": -23.5505,
+    "lon": -46.6333,
+    "features": {
+      "road_density": 35.82038450338458,
+      "road_entropy": 5.142498116091164,
+      "building_density": 1839.8304424732917,
+      "building_regularity": 0.8629246100806279,
+      "water_coverage": 0.008444447034685512,
+      "river_density": 2.4251886233646185,
+      "elevation_variance": 26.664398193359375,
+      "green_space_ratio": 0.03332784028752085
+    }
+  },
+  {
+    "name": "Buenos Aires",
+    "lat": -34.6037,
+    "lon": -58.3816,
+    "features": {
+      "road_density": 25.600709871783163,
+      "road_entropy": 4.698511183173215,
+      "building_density": 424.4855744749991,
+      "building_regularity": 0.9321549721104783,
+      "water_coverage": 0.011342430283621717,
+      "river_density": 1.4350293870903572,
+      "elevation_variance": 13.603947639465332,
+      "green_space_ratio": 0.0574439643854868
+    }
+  },
+  {
+    "name": "Bogota",
+    "lat": 4.711,
+    "lon": -74.0721,
+    "features": {
+      "road_density": 38.127925836923815,
+      "road_entropy": 5.001777797197212,
+      "building_density": 227.67540382254822,
+      "building_regularity": 0.9384824456451711,
+      "water_coverage": 0.027629823762850763,
+      "river_density": 1.265120518337908,
+      "elevation_variance": 26.43998146057129,
+      "green_space_ratio": 0.08741200438086125
+    }
+  },
+  {
+    "name": "Lima",
+    "lat": -12.0464,
+    "lon": -77.0428,
+    "features": {
+      "road_density": 40.52460173805874,
+      "road_entropy": 4.925877400363171,
+      "building_density": 761.8010925354491,
+      "building_regularity": 0.9172997945285166,
+      "water_coverage": 0.008073476104740346,
+      "river_density": 1.3040025874674068,
+      "elevation_variance": 17.74144172668457,
+      "green_space_ratio": 0.030837151037681355
+    }
+  },
+  {
+    "name": "Santiago",
+    "lat": -33.4489,
+    "lon": -70.6693,
+    "features": {
+      "road_density": 25.5304519312095,
+      "road_entropy": 4.613212863170407,
+      "building_density": 344.50006120939287,
+      "building_regularity": 0.8742001859129134,
+      "water_coverage": 0.0007089461085382747,
+      "river_density": 0.6970929646043985,
+      "elevation_variance": 15.476751327514648,
+      "green_space_ratio": 0.10299633467289106
+    }
+  },
+  {
+    "name": "Tokyo",
+    "lat": 35.6895,
+    "lon": 139.6917,
+    "features": {
+      "road_density": 42.36028595282875,
+      "road_entropy": 5.097573172636071,
+      "building_density": 1817.1383487602009,
+      "building_regularity": 0.8983839609078166,
+      "water_coverage": 0.001588850831419366,
+      "river_density": 1.2313223074714492,
+      "elevation_variance": 7.591691017150879,
+      "green_space_ratio": 0.10722383871759723
+    }
+  },
+  {
+    "name": "Beijing",
+    "lat": 39.9042,
+    "lon": 116.4074,
+    "features": {
+      "road_density": 22.93944307135516,
+      "road_entropy": 3.8776961553666074,
+      "building_density": 250.70409390557734,
+      "building_regularity": 0.9252913982175416,
+      "water_coverage": 0.01776996391810705,
+      "river_density": 1.736285843186938,
+      "elevation_variance": 4.334252834320068,
+      "green_space_ratio": 0.2073855865007285
+    }
+  },
+  {
+    "name": "Shanghai",
+    "lat": 31.2304,
+    "lon": 121.4737,
+    "features": {
+      "road_density": 27.499531877183042,
+      "road_entropy": 4.909588644778664,
+      "building_density": 359.8129481202396,
+      "building_regularity": 0.8987069631315842,
+      "water_coverage": 0.20413621576319066,
+      "river_density": 5.341884042083874,
+      "elevation_variance": 7.58739709854126,
+      "green_space_ratio": 0.05794473266686544
+    }
+  },
+  {
+    "name": "Seoul",
+    "lat": 37.5665,
+    "lon": 126.978,
+    "features": {
+      "road_density": 31.330063616713865,
+      "road_entropy": 5.0722242834429565,
+      "building_density": 734.3800157464162,
+      "building_regularity": 0.8433043629664944,
+      "water_coverage": 0.0006248433773278856,
+      "river_density": 0.4972174559548065,
+      "elevation_variance": 43.002323150634766,
+      "green_space_ratio": 0.04276880535163858
+    }
+  },
+  {
+    "name": "Mumbai",
+    "lat": 19.076,
+    "lon": 72.8777,
+    "features": {
+      "road_density": 21.577109180153624,
+      "road_entropy": 5.150646134994018,
+      "building_density": 157.98547288946725,
+      "building_regularity": 0.8653493940743401,
+      "water_coverage": 0.015947661987346425,
+      "river_density": 1.3365817009114391,
+      "elevation_variance": 6.409282207489014,
+      "green_space_ratio": 0.007995520299151923
+    }
+  },
+  {
+    "name": "Delhi",
+    "lat": 28.6139,
+    "lon": 77.209,
+    "features": {
+      "road_density": 23.687944669672692,
+      "road_entropy": 4.994945198369393,
+      "building_density": 145.93173135283243,
+      "building_regularity": 0.8726505257545888,
+      "water_coverage": 0.005407779409039245,
+      "river_density": 0.2346852874831356,
+      "elevation_variance": 6.988159656524658,
+      "green_space_ratio": 0.0661343119663518
+    }
+  },
+  {
+    "name": "Bangkok",
+    "lat": 13.7563,
+    "lon": 100.5018,
+    "features": {
+      "road_density": 37.38345901409356,
+      "road_entropy": 5.09267732951146,
+      "building_density": 776.6363702496635,
+      "building_regularity": 0.9278756025361867,
+      "water_coverage": 0.052259795731395255,
+      "river_density": 5.232920865941484,
+      "elevation_variance": 3.737792730331421,
+      "green_space_ratio": 0.04654472451824353
+    }
+  },
+  {
+    "name": "Singapore",
+    "lat": 1.3521,
+    "lon": 103.8198,
+    "features": {
+      "road_density": 17.615024375670114,
+      "road_entropy": 5.149238814240158,
+      "building_density": 187.84967040964378,
+      "building_regularity": 0.9344446988926719,
+      "water_coverage": 0.002345931747318856,
+      "river_density": 1.7968000889358235,
+      "elevation_variance": 14.304670333862305,
+      "green_space_ratio": 0.05989468241526027
+    }
+  },
+  {
+    "name": "Jakarta",
+    "lat": -6.2088,
+    "lon": 106.8456,
+    "features": {
+      "road_density": 32.803065604026564,
+      "road_entropy": 5.081517375226135,
+      "building_density": 2877.601398542241,
+      "building_regularity": 0.9787173232493795,
+      "water_coverage": 0.020708592490571172,
+      "river_density": 2.824055539158859,
+      "elevation_variance": 4.438693046569824,
+      "green_space_ratio": 0.009908810242804551
+    }
+  },
+  {
+    "name": "Kuala Lumpur",
+    "lat": 3.139,
+    "lon": 101.6869,
+    "features": {
+      "road_density": 38.49469894859805,
+      "road_entropy": 5.150937299600946,
+      "building_density": 369.14588207037735,
+      "building_regularity": 0.9326598510306142,
+      "water_coverage": 0.005785572231185752,
+      "river_density": 1.2408431255421932,
+      "elevation_variance": 16.737062454223633,
+      "green_space_ratio": 0.0760083689986451
+    }
+  },
+  {
+    "name": "Ho Chi Minh",
+    "lat": 10.8231,
+    "lon": 106.6297,
+    "features": {
+      "road_density": 26.446489909270905,
+      "road_entropy": 5.132364837504633,
+      "building_density": 99.59048789661178,
+      "building_regularity": 0.9485321318507689,
+      "water_coverage": 0.03077694127664562,
+      "river_density": 1.6192395623114084,
+      "elevation_variance": 3.0290169715881348,
+      "green_space_ratio": 0.012970964468890933
+    }
+  },
+  {
+    "name": "Dhaka",
+    "lat": 23.8103,
+    "lon": 90.4125,
+    "features": {
+      "road_density": 21.547014919668193,
+      "road_entropy": 4.9440020644653195,
+      "building_density": 1091.9961900511237,
+      "building_regularity": 0.9585089773319321,
+      "water_coverage": 0.07294201355832654,
+      "river_density": 0.797185354697789,
+      "elevation_variance": 3.1377131938934326,
+      "green_space_ratio": 0.02771817246544799
+    }
+  },
+  {
+    "name": "Karachi",
+    "lat": 24.8607,
+    "lon": 67.0011,
+    "features": {
+      "road_density": 33.13018265775679,
+      "road_entropy": 4.881709382757331,
+      "building_density": 587.660600160588,
+      "building_regularity": 0.8870173943333457,
+      "water_coverage": 0.0006009060576384009,
+      "river_density": 0.8816310443024441,
+      "elevation_variance": 4.796988010406494,
+      "green_space_ratio": 0.01920275522366862
+    }
+  },
+  {
+    "name": "Osaka",
+    "lat": 34.6937,
+    "lon": 135.5023,
+    "features": {
+      "road_density": 46.719930369192426,
+      "road_entropy": 4.901102080269512,
+      "building_density": 1520.9084916195452,
+      "building_regularity": 0.9211288445815916,
+      "water_coverage": 0.07764939832511454,
+      "river_density": 1.734455112988903,
+      "elevation_variance": 8.653596878051758,
+      "green_space_ratio": 0.11456801784154662
+    }
+  },
+  {
+    "name": "Hong Kong",
+    "lat": 22.3193,
+    "lon": 114.1694,
+    "features": {
+      "road_density": 52.61204007156685,
+      "road_entropy": 5.120291712519706,
+      "building_density": 575.4151281410099,
+      "building_regularity": 0.8421088622827735,
+      "water_coverage": 0.00022928067441604932,
+      "river_density": 1.2879267004930819,
+      "elevation_variance": 17.697528839111328,
+      "green_space_ratio": 0.07257019269825254
+    }
+  },
+  {
+    "name": "Cairo",
+    "lat": 30.0444,
+    "lon": 31.2357,
+    "features": {
+      "road_density": 30.837005670550585,
+      "road_entropy": 5.10333541384589,
+      "building_density": 322.6279255426617,
+      "building_regularity": 0.8678255288821644,
+      "water_coverage": 9.840059158107108e-05,
+      "river_density": 1.2241912500892718,
+      "elevation_variance": 8.418726921081543,
+      "green_space_ratio": 0.018036505100044183
+    }
+  },
+  {
+    "name": "Lagos",
+    "lat": 6.5244,
+    "lon": 3.3792,
+    "features": {
+      "road_density": 21.90294067258558,
+      "road_entropy": 5.0838664962989055,
+      "building_density": 1476.652471098787,
+      "building_regularity": 0.963347288188246,
+      "water_coverage": 0.0,
+      "river_density": 0.7492826996685699,
+      "elevation_variance": 6.777037620544434,
+      "green_space_ratio": 0.0016623434456400942
+    }
+  },
+  {
+    "name": "Nairobi",
+    "lat": -1.2921,
+    "lon": 36.8219,
+    "features": {
+      "road_density": 25.78757705397837,
+      "road_entropy": 5.070964063104503,
+      "building_density": 735.7259975995069,
+      "building_regularity": 0.9196911328641063,
+      "water_coverage": 0.0025557894527249276,
+      "river_density": 1.9164212384655221,
+      "elevation_variance": 26.318849563598633,
+      "green_space_ratio": 0.05593692733225739
+    }
+  },
+  {
+    "name": "Johannesburg",
+    "lat": -26.2041,
+    "lon": 28.0473,
+    "features": {
+      "road_density": 23.318080468710455,
+      "road_entropy": 4.899077620865312,
+      "building_density": 169.8254563524577,
+      "building_regularity": 0.8842563301379138,
+      "water_coverage": 4.4689263189024053e-05,
+      "river_density": 0.23788051316248945,
+      "elevation_variance": 24.9161376953125,
+      "green_space_ratio": 0.046274697581117866
+    }
+  },
+  {
+    "name": "Casablanca",
+    "lat": 33.5731,
+    "lon": -7.5898,
+    "features": {
+      "road_density": 26.047482514318627,
+      "road_entropy": 5.049703785974611,
+      "building_density": 157.60241629963127,
+      "building_regularity": 0.8103837382919526,
+      "water_coverage": 0.0,
+      "river_density": 0.0,
+      "elevation_variance": 15.554886817932129,
+      "green_space_ratio": 0.05447371752925593
+    }
+  },
+  {
+    "name": "Dubai",
+    "lat": 25.2048,
+    "lon": 55.2708,
+    "features": {
+      "road_density": 34.60308406622738,
+      "road_entropy": 4.991678926407289,
+      "building_density": 505.3176340991498,
+      "building_regularity": 0.8950497111502461,
+      "water_coverage": 0.14657735172141478,
+      "river_density": 0.6995023536073584,
+      "elevation_variance": 4.2783613204956055,
+      "green_space_ratio": 0.0077584372688149226
+    }
+  },
+  {
+    "name": "Istanbul",
+    "lat": 41.0082,
+    "lon": 28.9784,
+    "features": {
+      "road_density": 12.793434511601905,
+      "road_entropy": 5.10376400815601,
+      "building_density": 461.3239945515653,
+      "building_regularity": 0.8481243782715494,
+      "water_coverage": 0.00017637773690279393,
+      "river_density": 0.0698257235670783,
+      "elevation_variance": 17.529911041259766,
+      "green_space_ratio": 0.031876387183232144
+    }
+  },
+  {
+    "name": "Tel Aviv",
+    "lat": 32.0853,
+    "lon": 34.7818,
+    "features": {
+      "road_density": 28.33926100058771,
+      "road_entropy": 5.069169348332337,
+      "building_density": 478.3660811541408,
+      "building_regularity": 0.9202782814390443,
+      "water_coverage": 0.01994432152644696,
+      "river_density": 0.8846614060842545,
+      "elevation_variance": 9.43397331237793,
+      "green_space_ratio": 0.061234397894488854
+    }
+  },
+  {
+    "name": "Sydney",
+    "lat": -33.8688,
+    "lon": 151.2093,
+    "features": {
+      "road_density": 38.985586268835846,
+      "road_entropy": 5.070593086675639,
+      "building_density": 386.0577706092232,
+      "building_regularity": 0.8626970305920953,
+      "water_coverage": 0.0007588702353897313,
+      "river_density": 1.6822280315822333,
+      "elevation_variance": 19.833526611328125,
+      "green_space_ratio": 0.07996451733416185
+    }
+  },
+  {
+    "name": "Melbourne",
+    "lat": -37.8136,
+    "lon": 144.9631,
+    "features": {
+      "road_density": 50.80787647563932,
+      "road_entropy": 4.83905283379324,
+      "building_density": 589.8310955742458,
+      "building_regularity": 0.8908190088020188,
+      "water_coverage": 0.04221652617640245,
+      "river_density": 0.4905939471480134,
+      "elevation_variance": 15.562582015991211,
+      "green_space_ratio": 0.13124473230653097
+    }
+  }
+]
