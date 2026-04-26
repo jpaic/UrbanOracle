@@ -4,8 +4,9 @@ import SidebarLeft from './components/SidebarLeft';
 import MapView from './components/MapView';
 import SidebarRight from './components/SidebarRight';
 import { mockAnalyze } from './utils/mock';
+import { analyzeRegion, fetchSimilarCities } from './services/api';
 
-const USE_MOCK = true; // Set false when backend is live
+const USE_MOCK = false; // Set false when backend is live
 
 const INITIAL_STAGE_STATUSES = ['idle', 'idle', 'idle', 'idle'];
 
@@ -78,8 +79,33 @@ export default function App() {
       };
 
       const result = USE_MOCK
-        ? await mockAnalyze(bbox, onStage, abortRef.current.signal)
-        : await (await import('./utils/mock')).backendAnalyze(bbox);
+      ? await mockAnalyze(bbox, onStage, abortRef.current.signal)
+      : await (async () => {
+          onStage(0, 'Extracting OSM data…', 'active');
+          const { features } = await analyzeRegion([bbox.minLat, bbox.minLng, bbox.maxLat, bbox.maxLng]);
+          onStage(0, 'Extracting OSM data…', 'done');
+
+          onStage(1, 'Building feature vector…', 'active');
+          onStage(1, 'Building feature vector…', 'done');
+
+          onStage(2, 'Running similarity search…', 'active');
+          const { results } = await fetchSimilarCities(features, 10);
+          onStage(2, 'Running similarity search…', 'done');
+
+          onStage(3, 'Ranking matches…', 'active');
+          const matches = results.map((r, i) => ({
+            rank: i + 1,
+            city: r.name,
+            country: '',
+            similarity: r.similarity_score,
+            lat: r.lat,
+            lng: r.lon,
+            tags: [],
+          }));
+          onStage(3, 'Ranking matches…', 'done');
+
+          return { vector: features, matches };
+        })();
 
       setVector(result.vector);
       setMatches(result.matches);
